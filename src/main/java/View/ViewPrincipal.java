@@ -196,7 +196,7 @@ public class ViewPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAtualizar1ActionPerformed
 
     private void btnCriarModuloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCriarModuloActionPerformed
-        ViewCriarCategoria viewCategoria = new ViewCriarCategoria();
+        ViewCadastrarCategoria viewCategoria = new ViewCadastrarCategoria();
         viewCategoria.setVisible(true);
     }//GEN-LAST:event_btnCriarModuloActionPerformed
 

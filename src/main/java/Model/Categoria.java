@@ -4,24 +4,34 @@
  */
 package Model;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author 10264021908
  */
 public class Categoria {
     
-    private int numerocategoria;
+    private static int contador;
+    private int numerocategoria = 1;
     private String nomecategoria;
     private String descricaocategoria; 
     private String datahoracriacao;
     private String status;
 
-    public Categoria(int numerocategoria, String nomecategoria, String descricaocategoria, String datahoracriacao, String status) {
-        this.numerocategoria = numerocategoria;
+    public Categoria(String nomecategoria, String descricaocategoria, String status) {
         this.nomecategoria = nomecategoria;
         this.descricaocategoria = descricaocategoria;
-        this.datahoracriacao = datahoracriacao;
         this.status = status;
+        
+        this.numerocategoria = contador;
+        contador++;
+        
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
+        Date date = new Date(); 
+        this.datahoracriacao  = dateFormat.format(date); 
     }
 
     public void setNumeroCategoria(int numerocategoria) {

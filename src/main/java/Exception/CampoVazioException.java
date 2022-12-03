@@ -3,8 +3,9 @@
 package Exception;
 
 public class CampoVazioException extends Exception {
-    
-    public CampoVazioException() {
-        super("O campo está em branco");
+
+    public CampoVazioException(String message) {
+        super(message);
     }
+    
 }

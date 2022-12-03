@@ -1,24 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import javax.swing.JOptionPane;
-import interfaces.TarefaInterface;
-import java.text.DateFormat;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 
 public class ViewInicial extends javax.swing.JFrame {
 
-    /**
-     * Creates new form ViewInicial
-     */
     public ViewInicial() {
         initComponents();
         insereImagemLabel();
+    }
+    
+    public void adicionarAcaoBotao(ActionListener acao){
+        btnIniciar.addActionListener(acao);
+    }
+    
+    public void abrirTela(){
+        setVisible(true);
+    }
+    
+    public void fechar(){
+        setVisible(false);
     }
 
     /**
@@ -32,7 +33,7 @@ public class ViewInicial extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jlImagem = new javax.swing.JLabel();
-        btn_iniciar = new javax.swing.JButton();
+        btnIniciar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(350, 350));
@@ -41,24 +42,23 @@ public class ViewInicial extends javax.swing.JFrame {
         jlImagem.setPreferredSize(new java.awt.Dimension(300, 400));
         jPanel1.add(jlImagem);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 310, 410));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 370, 420));
 
-        btn_iniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btn_iniciar.setText("INICIAR");
-        btn_iniciar.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnIniciar.setText("INICIAR");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_iniciarActionPerformed(evt);
+                btnIniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(btn_iniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 260, 70));
+        getContentPane().add(btnIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 320, 70));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_iniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_iniciarActionPerformed
-       ViewMenu viewMenu = new ViewMenu();
-       viewMenu.setVisible(true);
-    }//GEN-LAST:event_btn_iniciarActionPerformed
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+       
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -96,7 +96,7 @@ public class ViewInicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_iniciar;
+    private javax.swing.JButton btnIniciar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlImagem;
     // End of variables declaration//GEN-END:variables

@@ -44,7 +44,7 @@ public abstract class Atividade {
     
     public void setTitulo(String titulo) throws CampoVazioException {
         if(titulo.isBlank()) {
-            throw new CampoVazioException();
+            throw new CampoVazioException("");
         }
         this.titulo = titulo;
     }
@@ -55,7 +55,7 @@ public abstract class Atividade {
       
     public void setDataconclusao(String dataconclusao) throws CampoVazioException{
         if(dataconclusao.equalsIgnoreCase("  /  /  ")){
-            throw new CampoVazioException();
+            throw new CampoVazioException("");
         }
         this.dataconclusao = dataconclusao;
     }

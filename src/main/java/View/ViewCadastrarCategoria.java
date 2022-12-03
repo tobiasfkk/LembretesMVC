@@ -1,53 +1,47 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
-import DAO.CategoriaDAO;
-import Model.Categoria;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import javax.swing.JOptionPane;
-import interfaces.CategoriaInterface;
+import java.awt.event.ActionListener;
 
-/**
- *
- * @author lucas
- */
-public class ViewCriarCategoria extends javax.swing.JFrame {
+public class ViewCadastrarCategoria extends javax.swing.JFrame {
 
     static int numeroCategoria;
     
-    public ViewCriarCategoria() {
+    public ViewCadastrarCategoria() {
         initComponents();
-        
-        
-        btnConfirmar.addActionListener((e) -> {
-            
-            CategoriaInterface repositorio = new CategoriaDAO();
-            
-            numeroCategoria++;
-            
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss"); 
-            Date date = new Date(); 
-            String datahoracriacao = dateFormat.format(date); 
-            
-            String nome = txtNome.getText();
-            
-            String situacao = comboSituacao.getSelectedItem().toString();
-            String descricao = txtDescricao.getText();  
-            
-            Categoria categoria = new Categoria(numeroCategoria,  nome, descricao, datahoracriacao, situacao);
-           
-            repositorio.gravar(categoria);
-            
-            JOptionPane.showMessageDialog(null,"Categoria: " + categoria.getNomeCategoria()+ ", criado com Sucesso!");
-
-            txtNome.setText("");
-            txtDescricao.setText("");
-        });
+    }
+    
+    public void exibir(){
+        setVisible(true);
+    }
+    
+    public void fechar(){
+        setVisible(false);
+    }
+    
+    public String getNome(){
+        return txtNome.getText();
+    }
+    
+    public String getDescricao(){
+        return txtDescricao.getText();
+    }
+    
+    public String getSituacao(){
+        return comboSituacao.getSelectedItem().toString();
+    }
+    
+    public void adicionarAcaoBotaoCadastrar(ActionListener acao){
+        btnConfirmar.addActionListener(acao);
+    }
+    
+    public void limparCampos(){
+        txtNome.setText("");
+        txtDescricao.setText("");
+    }
+    
+    public void exibirMensagem(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
     }
 
     /**
@@ -180,14 +174,18 @@ public class ViewCriarCategoria extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewCriarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCadastrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewCriarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCadastrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewCriarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCadastrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewCriarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCadastrarCategoria.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -196,7 +194,7 @@ public class ViewCriarCategoria extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ViewCriarCategoria().setVisible(true);
+                new ViewCadastrarCategoria().setVisible(true);
             }
         });
     }

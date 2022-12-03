@@ -4,13 +4,7 @@
  */
 package View;
 
-import DAO.CategoriaDAO;
-import DAO.TarefaDAO;
-import Model.Categoria;
-import Model.Tarefa;
-import interfaces.CategoriaInterface;
-import interfaces.TarefaInterface;
-import static java.lang.System.exit;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 /**
@@ -24,6 +18,38 @@ public class ViewMenu extends javax.swing.JFrame {
      */
     public ViewMenu() {
         initComponents();
+    }
+
+    public void abrirTela(){
+        setVisible(true);
+    }
+    
+    public void fecharTela(){
+        setVisible(false);
+    }
+    
+    public void adicionarAcaoBotaoCadastrarCategoria(ActionListener acao){
+        BtnCadastrarCategoria.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoBotaoCadastrarTarefa(ActionListener acao){
+        BtnCadastrarTarefa.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoBotaoVisualizarCategoria(ActionListener acao){
+        BtnVisualizarCategoria.addActionListener(acao);
+    }
+  
+    public void adicionarAcaoBotaoVisualizarTarefa(ActionListener acao){
+        BtnVisualizarTarefa.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoBotaoFechar(ActionListener acao){
+        BtnFechar.addActionListener(acao);
+    }
+    
+    public void exibirMensagem(String msg){
+        JOptionPane.showMessageDialog(null, msg);
     }
 
     /**
@@ -76,11 +102,6 @@ public class ViewMenu extends javax.swing.JFrame {
         BtnCadastrarCategoria.setMaximumSize(new java.awt.Dimension(133, 22));
         BtnCadastrarCategoria.setMinimumSize(new java.awt.Dimension(133, 22));
         BtnCadastrarCategoria.setPreferredSize(new java.awt.Dimension(133, 22));
-        BtnCadastrarCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnCadastrarCategoriaActionPerformed(evt);
-            }
-        });
 
         BtnFechar.setText("Fechar");
         BtnFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -155,65 +176,59 @@ public class ViewMenu extends javax.swing.JFrame {
 
     private void BtnCadastrarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarTarefaActionPerformed
         
-        CategoriaInterface repositorioCategoria = new CategoriaDAO();
-        
-        boolean entrou = false;
-        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
-            
-            entrou = true;
-            break;
-        }
-        if(entrou == false){
-            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma categoria!");
-        }else{
-            ViewCriarTarefa viewTarefa = new ViewCriarTarefa();
-            viewTarefa.setVisible(true);
-        }  
+//        CategoriaInterface repositorioCategoria = new CategoriaDAO();
+//        
+//        boolean entrou = false;
+//        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
+//            
+//            entrou = true;
+//            break;
+//        }
+//        if(entrou == false){
+//            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma categoria!");
+//        }else{
+//            ViewCriarTarefa viewTarefa = new ViewCriarTarefa();
+//            viewTarefa.setVisible(true);
+//        }  
         
     }//GEN-LAST:event_BtnCadastrarTarefaActionPerformed
 
-    private void BtnCadastrarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnCadastrarCategoriaActionPerformed
-        ViewCriarCategoria viewCategoria = new ViewCriarCategoria();
-        viewCategoria.setVisible(true);
-        
-    }//GEN-LAST:event_BtnCadastrarCategoriaActionPerformed
-
     private void BtnVisualizarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisualizarCategoriaActionPerformed
 
-        CategoriaInterface repositorioCategoria = new CategoriaDAO();
-        
-        boolean entrou = false;
-        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
-            
-            entrou = true;
-            break;
-        }
-        if(entrou == false){
-            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma categoria!");
-        }else{
-            ViewAlterarCategoria viewAlterarCategoria = new ViewAlterarCategoria();
-            viewAlterarCategoria.setVisible(true);
-        }
+//        CategoriaInterface repositorioCategoria = new CategoriaDAO();
+//        
+//        boolean entrou = false;
+//        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
+//            
+//            entrou = true;
+//            break;
+//        }
+//        if(entrou == false){
+//            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma categoria!");
+//        }else{
+//            ViewAlterarCategoria viewAlterarCategoria = new ViewAlterarCategoria();
+//            viewAlterarCategoria.setVisible(true);
+//        }
     }//GEN-LAST:event_BtnVisualizarCategoriaActionPerformed
 
     private void BtnVisualizarTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnVisualizarTarefaActionPerformed
   
         
         
-        TarefaInterface repositorioTarefa = new TarefaDAO();
-        
-        boolean entrou = false;
-        for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
-            
-            entrou = true;
-            break;
-        }
-        if(entrou == false){
-            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma tarefa!");
-        }else{
-            ViewAlterarTarefa viewAlterarTarefa = new ViewAlterarTarefa();
-            viewAlterarTarefa.setVisible(true); 
-        } 
+//        TarefaInterface repositorioTarefa = new TarefaDAO();
+//        
+//        boolean entrou = false;
+//        for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
+//            
+//            entrou = true;
+//            break;
+//        }
+//        if(entrou == false){
+//            JOptionPane.showMessageDialog(null,"Necessário cadastrar pelo menos uma tarefa!");
+//        }else{
+//            ViewAlterarTarefa viewAlterarTarefa = new ViewAlterarTarefa();
+//            viewAlterarTarefa.setVisible(true); 
+//        } 
     }//GEN-LAST:event_BtnVisualizarTarefaActionPerformed
 
     private void BtnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnFecharActionPerformed
@@ -223,38 +238,38 @@ public class ViewMenu extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ViewMenu().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(ViewMenu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new ViewMenu().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnCadastrarCategoria;

@@ -153,9 +153,6 @@
               <Dimension value="[133, 22]"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnCadastrarCategoriaActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="BtnFechar">
           <Properties>

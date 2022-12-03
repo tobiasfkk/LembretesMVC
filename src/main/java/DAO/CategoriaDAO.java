@@ -1,10 +1,7 @@
 package DAO;
 
 import Model.Categoria;
-import java.util.ArrayList;
-import java.util.List;
 import interfaces.CategoriaInterface;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
