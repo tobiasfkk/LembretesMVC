@@ -1,7 +1,5 @@
 package Model;
 
-import Exception.CampoVazioException;
-
 public class Tarefa extends Atividade {
     
     private String anexo; 

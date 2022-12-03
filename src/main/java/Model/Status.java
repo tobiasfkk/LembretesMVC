@@ -1,9 +1,5 @@
 package Model;
 
-/**
- *
- * @author tobiaskiefer
- */
 public class Status implements Comparable<Status>{
     private int id;
     private String nome;
