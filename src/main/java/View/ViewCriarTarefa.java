@@ -39,7 +39,7 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
     static int numeracao;
     private boolean entrou = false;
             
-    
+    //colocar no controller --
     public ViewCriarTarefa() {
         initComponents();
         
@@ -117,6 +117,11 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
         });
     }
       
+    //ate aqui --
+    
+    public void exibir(){
+        setVisible(true);
+    }
    
     /**
      * This method is called from within the constructor to initialize the form.
