@@ -28,7 +28,7 @@ public class ControladorViewMenu {
     }
     
     public void cadastrarTarefa(){
-       
+        ControladorViewCriarTarefa controladorViewCriarTarefa = new ControladorViewCriarTarefa();
     }
     
     public void visualiazarCategoria(){

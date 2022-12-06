@@ -40,9 +40,9 @@ public class TarefaTableModel extends AbstractTableModel {
         Tarefa tarefa = this.tarefas.get(rowIndex);
             switch(columnIndex){
                 case COLUNA_COD:
-                    return tarefa.getNumeroTarefa();
+                    return tarefa.getNumerotarefa();
                 case COLUNA_DATACONCLUSAO:
-                    return tarefa.getDataConclusao();
+                    return tarefa.getDataconclusao();
                 case COLUNA_TITULO:
                     return tarefa.getTitulo();
                 case COLUNA_DESCRICAO:

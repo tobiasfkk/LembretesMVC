@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class ViewCadastrarCategoria extends javax.swing.JFrame {
 
-    static int numeroCategoria;
+//    static int numeroCategoria;
     
     public ViewCadastrarCategoria() {
         initComponents();

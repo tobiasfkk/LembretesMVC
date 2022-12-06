@@ -42,17 +42,11 @@ public class TarefaDAO implements TarefaInterface{
     @Override
     public void editar(int numerotarefa, String titulo, String dataconclusao, String prioridade, String status, String descricao, Categoria categoria) {
          for(Tarefa tarefa : tarefas){
-             if (tarefa.getNumeroTarefa() == numerotarefa){
-                 try {
-                     tarefa.setTitulo(titulo);
-                 } catch (CampoVazioException ex) {
-                     Logger.getLogger(TarefaDAO.class.getName()).log(Level.SEVERE, null, ex);
-                 }
-                 try {
-                     tarefa.setDataconclusao(dataconclusao);
-                 } catch (CampoVazioException ex) {
-                     Logger.getLogger(TarefaDAO.class.getName()).log(Level.SEVERE, null, ex);
-                 }
+             if (tarefa.getNumerotarefa() == numerotarefa){
+
+                tarefa.setTitulo(titulo);
+                 tarefa.setDataconclusao(dataconclusao);
+                 
                  tarefa.setPrioridade(prioridade);
                  tarefa.setDescricao(descricao);
                  tarefa.setStatus(status);
