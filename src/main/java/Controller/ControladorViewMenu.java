@@ -32,7 +32,7 @@ public class ControladorViewMenu {
     }
     
     public void visualiazarCategoria(){
-       
+        ControladorViewAlterarCategoria controladorViewAlterarCategoria = new ControladorViewAlterarCategoria();
     }
     
     public void visualiazarTarefa(){

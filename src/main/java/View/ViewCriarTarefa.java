@@ -67,12 +67,14 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
         btnConfirmar.addActionListener(acao);
     }
     
+    
+    
     public void CampoPrioridade(String prioridade){
         comboPrioridade.addItem(prioridade);
     }
     
     public void CampoCategoria(Categoria categoria){
-        ComboCategoria.addItem((Categoria) categoria);
+        ComboCategoria.addItem(categoria);
     }
     
     public void CampoStatus(String status){
