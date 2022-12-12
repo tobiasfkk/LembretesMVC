@@ -96,6 +96,7 @@ public class ViewCadastrarCategoria extends javax.swing.JFrame {
         });
 
         comboSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativa", "Inativa" }));
+        comboSituacao.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

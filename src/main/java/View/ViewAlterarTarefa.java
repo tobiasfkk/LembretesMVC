@@ -4,28 +4,107 @@ import DAO.CategoriaDAO;
 import DAO.TarefaDAO;
 import Model.Categoria;
 import Model.Tarefa;
-import interfaces.CategoriaInterface;
 import interfaces.TarefaInterface;
+import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 public class ViewAlterarTarefa extends javax.swing.JFrame {
 
     public ViewAlterarTarefa() {
         initComponents();
-        
-        CategoriaInterface repositorioCategoria = new CategoriaDAO();
-        
-        for (Categoria categoria : repositorioCategoria.buscarTodosCategorias()) {
-            this.ComboCategoria.addItem(categoria);
-        }
-        
-        TarefaInterface repositorioTarefa = new TarefaDAO();
-        
-        for (Tarefa tarefa : repositorioTarefa.buscarTodasTarefas()) {
-            this.ComboTarefa.addItem(tarefa);
-        }
     }
-
+    
+    public void exibir(){
+        setVisible(true);
+    }
+    
+    public void adicionarAcaoBotaoSalvar(ActionListener acao){
+        BtnSalvarAlteracao.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoComboTarefa(ActionListener acao){
+        ComboTarefa.addActionListener(acao);
+    }
+    
+    public void adicionarAcaoBotaoDeletar(ActionListener acao){
+        BtnDeletar.addActionListener(acao);
+    }
+    
+    public void ComboCategoria(Categoria categoria){
+        ComboCategoria.addItem((Categoria) categoria);
+    }
+    
+    public void ComboTarefa(Tarefa tarefa){
+        ComboTarefa.addItem((Tarefa) tarefa);
+    }
+    
+    public void exibirMensagem(String msg) {
+        JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public void limparCampos(){
+        txtTitulo.setText("");
+        dataConclusao.setText("");
+        txtDescricao.setText("");
+    }
+    
+    public Categoria getComboCategoria(){
+        return (Categoria) ComboCategoria.getSelectedItem();
+    }
+    
+    public Tarefa getComboTarefa(){
+        return (Tarefa) ComboTarefa.getSelectedItem();
+    }
+    
+    public String getTarefaTitulo(){
+        return txtTitulo.getText();
+    }
+    
+    public String getTarefaPrioridade(){
+        return comboPrioridade.getSelectedItem().toString();
+    }
+    
+    public String getTarefaStatus(){
+        return comboStatus.getSelectedItem().toString();
+    }
+    
+    public String getTarefaDataConclusao(){
+         return dataConclusao.getText();
+    }
+    
+    public String getTarefaDescricao(){
+         return txtDescricao.getText();
+    }
+    
+    public void setTarefaTitulo(String titulo){
+        txtTitulo.setText(titulo);
+    }
+    
+    
+    public void setTarefaPrioridade(String prioridade){
+        comboPrioridade.setSelectedItem(prioridade);
+    }
+    
+    public void setTarefaStatus(String status){
+        comboStatus.setSelectedItem(status);
+    }
+    
+    public void setTarefaDataConclusao(String data){
+        dataConclusao.setText(data);
+    }
+    
+    public void setTarefaCategoria(Categoria categoria){
+        ComboCategoria.setSelectedItem(categoria);
+    }
+    
+    public void setTarefaDescricao(String descricao){
+        txtDescricao.setText(descricao);
+    }
+    
+    public void removerItemComboTarefas(Tarefa tarefa){
+        ComboTarefa.removeItem((Tarefa) tarefa);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -229,13 +308,7 @@ public class ViewAlterarTarefa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ComboTarefaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboTarefaActionPerformed
-        Tarefa SelectedItem = (Tarefa) this.ComboTarefa.getSelectedItem();
-        this.txtTitulo.setText(SelectedItem.getTitulo());
-        this.comboPrioridade.setSelectedItem(SelectedItem.getPrioridade().toString());
-        this.comboStatus.setSelectedItem(SelectedItem.getStatus().toString());
-        this.dataConclusao.setText(SelectedItem.getDataconclusao());
-        this.ComboCategoria.setSelectedItem(SelectedItem.getCategoria());
-        this.txtDescricao.setText(SelectedItem.getDescricao());
+        // TODO add your handling code here:
     }//GEN-LAST:event_ComboTarefaActionPerformed
 
     private void comboPrioridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboPrioridadeActionPerformed
@@ -255,11 +328,7 @@ public class ViewAlterarTarefa extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboCategoriaActionPerformed
 
     private void BtnSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracaoActionPerformed
-        // TODO add your handling code here:
-        Tarefa SelectedItem = (Tarefa) this.ComboTarefa.getSelectedItem();
-        TarefaInterface repositorioTarefa = new TarefaDAO();
-        repositorioTarefa.editar(SelectedItem.getNumerotarefa(),this.txtTitulo.getText(),this.dataConclusao.getText(),this.comboPrioridade.getSelectedItem().toString(),this.comboStatus.getSelectedItem().toString(),this.txtDescricao.getText(), (Categoria) this.ComboCategoria.getSelectedItem());
-        JOptionPane.showMessageDialog(null,"Tarefa alterada com Sucesso!"); 
+     
     }//GEN-LAST:event_BtnSalvarAlteracaoActionPerformed
 
     private void txtTituloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTituloActionPerformed
@@ -267,11 +336,7 @@ public class ViewAlterarTarefa extends javax.swing.JFrame {
     }//GEN-LAST:event_txtTituloActionPerformed
 
     private void BtnDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnDeletarActionPerformed
-        Tarefa SelectedItem = (Tarefa) this.ComboTarefa.getSelectedItem();
-        TarefaInterface repositorioTarefa = new TarefaDAO();
-        repositorioTarefa.remover(SelectedItem);
-        this.ComboTarefa.removeItem(SelectedItem);
-        JOptionPane.showMessageDialog(null,"Tarefa deletada com Sucesso!"); 
+
     }//GEN-LAST:event_BtnDeletarActionPerformed
 
     /**
