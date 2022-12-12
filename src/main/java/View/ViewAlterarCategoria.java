@@ -48,7 +48,7 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
     }
     
     public String getCategoriaSituacao(){
-        return CategoriaSituacao.getSelectedItem().toString();
+        return (String) CategoriaSituacao.getSelectedItem();
     }
     
     public void ComboCategoria(Categoria categoria){
@@ -69,6 +69,10 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
     
     public void removerItemComboCategoria(Categoria categoria){
         ComboCategoria.removeItem((Categoria) categoria);
+    }
+        
+    public void CampoStatus(String status){
+        CategoriaSituacao.addItem(status);
     }
     
     @SuppressWarnings("unchecked")
@@ -106,7 +110,6 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
 
         jLabel5.setText("Situação");
 
-        CategoriaSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativo", "Inativo" }));
         CategoriaSituacao.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

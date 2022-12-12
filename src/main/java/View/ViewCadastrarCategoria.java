@@ -28,7 +28,7 @@ public class ViewCadastrarCategoria extends javax.swing.JFrame {
     }
     
     public String getSituacao(){
-        return comboSituacao.getSelectedItem().toString();
+        return (String) comboSituacao.getSelectedItem();
     }
     
     public void adicionarAcaoBotaoCadastrar(ActionListener acao){
@@ -42,6 +42,10 @@ public class ViewCadastrarCategoria extends javax.swing.JFrame {
     
     public void exibirMensagem(String msg) {
         JOptionPane.showMessageDialog(null, msg);
+    }
+    
+    public void CampoStatus(String status){
+        comboSituacao.addItem(status);
     }
 
     /**
@@ -95,7 +99,6 @@ public class ViewCadastrarCategoria extends javax.swing.JFrame {
             }
         });
 
-        comboSituacao.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ativa", "Inativa" }));
         comboSituacao.setToolTipText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -34,5 +34,11 @@ public class Status implements Comparable<Status>{
         }
     }
 
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+    
 
 }

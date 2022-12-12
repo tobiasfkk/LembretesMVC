@@ -3,15 +3,20 @@ package Controller;
 import DAO.CategoriaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
+import Model.Status;
 import View.ViewCadastrarCategoria;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ControladorViewCadastrarCategoria {
     
     private ViewCadastrarCategoria viewCadastrarCategoria = new ViewCadastrarCategoria();
 
     public ControladorViewCadastrarCategoria() {
+        valoresCampoStatus();
         abrirTela();
         adicionarAcao();
     }
@@ -44,4 +49,12 @@ public class ControladorViewCadastrarCategoria {
             viewCadastrarCategoria.exibirMensagem("CATEGORIA CADASTRADA COM SUCESSO!");
         }
     }
+    
+    public void valoresCampoStatus(){
+            
+        viewCadastrarCategoria.CampoStatus("Ativo");
+        viewCadastrarCategoria.CampoStatus("Inativo");
+
+    }
+    
 }

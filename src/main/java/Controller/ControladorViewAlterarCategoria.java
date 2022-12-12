@@ -16,6 +16,7 @@ public class ControladorViewAlterarCategoria {
 
     public ControladorViewAlterarCategoria() {
         carregarComboCategoria();
+        valoresCampoStatus();
         adicionarAcao();
         abrirTela();
     }
@@ -79,5 +80,13 @@ public class ControladorViewAlterarCategoria {
             viewAlterarCategoria.ComboCategoria(categoria);
         }
     }
+    
+    public void valoresCampoStatus(){
+            
+        viewAlterarCategoria.CampoStatus("Ativo");
+        viewAlterarCategoria.CampoStatus("Inativo");
+
+    }
+
 }
     
