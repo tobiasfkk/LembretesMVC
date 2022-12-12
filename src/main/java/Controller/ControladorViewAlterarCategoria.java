@@ -55,7 +55,7 @@ public class ControladorViewAlterarCategoria {
             throw new CampoVazioException("NOME E DESCRICÃO NÃO PODEM ESTAR VAZIOS!");
         }else{
             Categoria SelectedItem = (Categoria) viewAlterarCategoria.getComboCategoria();
-            repositorioCategoria.editar(SelectedItem.getNumeroCategoria(), viewAlterarCategoria.getCategoriaNome(), viewAlterarCategoria.getCategoriaDescricao(), viewAlterarCategoria.getCategoriaDescricao());
+            repositorioCategoria.editar(SelectedItem.getNumeroCategoria(), viewAlterarCategoria.getCategoriaNome(), viewAlterarCategoria.getCategoriaDescricao(), viewAlterarCategoria.getCategoriaSituacao());
             viewAlterarCategoria.limparCampos();
             viewAlterarCategoria.exibirMensagem("CATEGORIA SALVA COM SUCESSO!");
         }
