@@ -105,6 +105,11 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
         jLabel4.setToolTipText("");
 
         BtnSalvarAlteracao.setText("Salvar Alterações");
+        BtnSalvarAlteracao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnSalvarAlteracaoActionPerformed(evt);
+            }
+        });
 
         BtnDeletar.setText("Deletar Registro");
 
@@ -176,6 +181,10 @@ public class ViewAlterarCategoria extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BtnSalvarAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnSalvarAlteracaoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtnSalvarAlteracaoActionPerformed
 
     /**
      * @param args the command line arguments

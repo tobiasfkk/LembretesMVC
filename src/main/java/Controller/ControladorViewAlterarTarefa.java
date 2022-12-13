@@ -4,15 +4,11 @@ import DAO.CategoriaDAO;
 import DAO.TarefaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
-import Model.Status;
 import Model.Tarefa;
 import View.ViewAlterarTarefa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class ControladorViewAlterarTarefa {
@@ -26,6 +22,7 @@ public class ControladorViewAlterarTarefa {
         valoresCampoStatus();
         valoresCampoPrioridade();
         adicionarAcao();
+        ComboTarefa();
         abrirTela();
     }
     

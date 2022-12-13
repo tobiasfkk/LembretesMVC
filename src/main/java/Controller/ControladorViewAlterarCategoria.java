@@ -16,6 +16,7 @@ public class ControladorViewAlterarCategoria {
         carregarComboCategoria();
         valoresCampoStatus();
         adicionarAcao();
+        ComboCategoria();
         abrirTela();
     }
     
@@ -56,6 +57,7 @@ public class ControladorViewAlterarCategoria {
             repositorioCategoria.editar(SelectedItem.getNumeroCategoria(), viewAlterarCategoria.getCategoriaNome(), viewAlterarCategoria.getCategoriaDescricao(), viewAlterarCategoria.getCategoriaSituacao());
             viewAlterarCategoria.limparCampos();
             viewAlterarCategoria.exibirMensagem("CATEGORIA SALVA COM SUCESSO!");
+            ComboCategoria();
         }
     }
     
@@ -64,6 +66,7 @@ public class ControladorViewAlterarCategoria {
         repositorioCategoria.remover(SelectedItem);
         viewAlterarCategoria.removerItemComboCategoria(SelectedItem);        
         viewAlterarCategoria.exibirMensagem("CATEGORIA DELETADA COM SUCESSO!");
+        ComboCategoria();
     }
     
     public void ComboCategoria(){
