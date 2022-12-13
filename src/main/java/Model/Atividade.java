@@ -9,7 +9,7 @@ public abstract class Atividade {
     
     protected String titulo;
     protected String datahoracriacao;
-    private String dataconclusao;
+    protected String dataconclusao;
     protected String prioridade;
     protected String status;
     protected String descricao;

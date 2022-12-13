@@ -2,8 +2,8 @@ package Model;
 
 public class Tarefa extends Atividade {
     
-    private static int contador;
-    private int numerotarefa = 1;
+    private static int contador = 1;
+    private int numerotarefa;
     private String anexo; 
     private Categoria categoria;
    
@@ -81,10 +81,15 @@ public class Tarefa extends Atividade {
     public String getDescricao() {
         return descricao;
     }
+    
+    public String getDataconclusao() {
+        return dataconclusao;
+    }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+    
 
     @Override
     public String toString() {

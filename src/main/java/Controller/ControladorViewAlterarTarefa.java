@@ -1,23 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Controller;
 
 import DAO.CategoriaDAO;
 import DAO.TarefaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
+import Model.Status;
 import Model.Tarefa;
-import View.ViewAlterarCategoria;
 import View.ViewAlterarTarefa;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
-/**
- *
- * @author lucas
- */
 public class ControladorViewAlterarTarefa {
     private ViewAlterarTarefa ViewAlterarTarefa = new ViewAlterarTarefa();
     private TarefaDAO repositorioTarefa = new TarefaDAO();
@@ -26,6 +23,8 @@ public class ControladorViewAlterarTarefa {
     public ControladorViewAlterarTarefa() {
         carregarComboCategoria();
         carregarComboTarefa();
+        valoresCampoStatus();
+        valoresCampoPrioridade();
         adicionarAcao();
         abrirTela();
     }
@@ -67,6 +66,7 @@ public class ControladorViewAlterarTarefa {
         ViewAlterarTarefa.setTarefaDataConclusao(SelectedItem.getDataconclusao());
         ViewAlterarTarefa.setTarefaCategoria(SelectedItem.getCategoria());
         ViewAlterarTarefa.setTarefaDescricao(SelectedItem.getDescricao());
+        ViewAlterarTarefa.setTarefaAnexo(SelectedItem.getAnexo());
     }
     
     public void salvar() throws CampoVazioException{
@@ -74,9 +74,13 @@ public class ControladorViewAlterarTarefa {
             throw new CampoVazioException("TITULO NÃO PODE ESTAR VÁZIO!");
         }else{
             Tarefa SelectedItem = (Tarefa) ViewAlterarTarefa.getComboTarefa();
+            
             repositorioTarefa.editar(SelectedItem.getNumerotarefa(), ViewAlterarTarefa.getTarefaTitulo(), ViewAlterarTarefa.getTarefaDataConclusao(), ViewAlterarTarefa.getTarefaPrioridade(), ViewAlterarTarefa.getTarefaStatus(), ViewAlterarTarefa.getTarefaDescricao(), ViewAlterarTarefa.getComboCategoria());
+            ViewAlterarTarefa.enviarImagem();
+            SelectedItem.setAnexo(ViewAlterarTarefa.getAnexo());
             ViewAlterarTarefa.limparCampos();
             ViewAlterarTarefa.exibirMensagem("TAREFA SALVA COM SUCESSO!");
+            ComboTarefa();
         }
     }
     
@@ -84,7 +88,8 @@ public class ControladorViewAlterarTarefa {
         Tarefa SelectedItem = (Tarefa) ViewAlterarTarefa.getComboTarefa();
         repositorioTarefa.remover(SelectedItem);
         ViewAlterarTarefa.removerItemComboTarefas(SelectedItem);        
-        ViewAlterarTarefa.exibirMensagem("tAREFA DELETADA COM SUCESSO!");
+        ViewAlterarTarefa.exibirMensagem("TAREFA DELETADA COM SUCESSO!");
+        ComboTarefa();
     }
     
     public void carregarComboCategoria(){
@@ -98,4 +103,23 @@ public class ControladorViewAlterarTarefa {
             ViewAlterarTarefa.ComboTarefa(tarefa);
         }
     }
+    
+    public void valoresCampoStatus(){
+        ViewAlterarTarefa.CampoStatus("Não Concluído");
+        ViewAlterarTarefa.CampoStatus("Concluído");
+    }
+    
+    public void valoresCampoPrioridade(){
+        Map<String, String> prioridadeCombo = new HashMap<String, String>();
+
+        prioridadeCombo.put("Baixa","Baixa");
+        prioridadeCombo.put("Media","Média");
+        prioridadeCombo.put("Alta","Alta");
+        prioridadeCombo.put("Critico","Crítico");
+        
+        for(String key : prioridadeCombo.keySet()){
+            ViewAlterarTarefa.CampoPrioridade(prioridadeCombo.get(key));
+        }
+    }
+    
 }

@@ -1,14 +1,11 @@
 package DAO;
 
-import Exception.CampoVazioException;
 import Model.Categoria;
 import Model.Tarefa;
 import interfaces.TarefaInterface;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class TarefaDAO implements TarefaInterface{
     

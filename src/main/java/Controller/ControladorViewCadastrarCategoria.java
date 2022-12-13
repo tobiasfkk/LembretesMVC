@@ -3,13 +3,9 @@ package Controller;
 import DAO.CategoriaDAO;
 import Exception.CampoVazioException;
 import Model.Categoria;
-import Model.Status;
 import View.ViewCadastrarCategoria;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 public class ControladorViewCadastrarCategoria {
     

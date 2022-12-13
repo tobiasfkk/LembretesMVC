@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 public class ControladorViewCriarTarefa {
     private ViewCriarTarefa viewCadastrarTarefa = new ViewCriarTarefa();
     private CategoriaDAO categoriaDAO = new CategoriaDAO();
@@ -43,13 +42,10 @@ public class ControladorViewCriarTarefa {
                 }
             }
         });
-        
-        
-
     }
     
     public void salvar()throws CampoVazioException{
-        if(viewCadastrarTarefa.getTitulo().isEmpty()||viewCadastrarTarefa.getDataConclusao().isEmpty()){
+        if((viewCadastrarTarefa.getTitulo().isEmpty())||(viewCadastrarTarefa.getDataConclusao().equals("  /  /  "))){
             throw new CampoVazioException("TÍTULO E DATA DE CONCLUSÃO NÃO PODEM ESTAR VAZIOS!");
         }else{
             Tarefa tarefa = new Tarefa( viewCadastrarTarefa.getTitulo(), viewCadastrarTarefa.getDataConclusao(), viewCadastrarTarefa.getPrioridade(), viewCadastrarTarefa.getStatus(), viewCadastrarTarefa.getDescricao(), viewCadastrarTarefa.getCategoria());
@@ -82,7 +78,7 @@ public class ControladorViewCriarTarefa {
     }
     
     public void valoresCampoStatus(){
-        Status naoConcluido = new Status(2,"Não Concluido");
+        Status naoConcluido = new Status(2,"Não Concluído");
         Status concluido = new Status(1,"Concluido");
         
         List<Status> listaStatus = new ArrayList();

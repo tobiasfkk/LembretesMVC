@@ -67,8 +67,6 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
         btnConfirmar.addActionListener(acao);
     }
     
-    
-    
     public void CampoPrioridade(String prioridade){
         comboPrioridade.addItem(prioridade);
     }
@@ -81,20 +79,17 @@ public class ViewCriarTarefa extends javax.swing.JFrame {
         comboStatus.addItem(status);
     }
     
+    
+    
     public void enviarImagem(){
         if(entrou ==  true){
 
             numeracao++;
-            String tipo = ".jpeg";
+            String tipo = ".jpg";
             String nome = "imagem" + Integer.toString(numeracao)+ tipo;
-
             try {
-                 // TODO add your handling code here:
-
-                 //String caminho = getClass().getResource("/imagens/").toString();
-                 String caminho = "/Users/tobiaskiefer/NetBeansProjects/trabalhoprog2/src/main/java/imagens/";
-                 //String caminho = "/Users/tobiaskiefer/NetBeansProjects/trabalhoprog2/";
-                 //String caminho = "C:/Users/João Pedro Parro/OneDrive - Delsoft Sistemas/Área de Trabalho/PROG2/New Folder/trabalhoprog2/trabalhoprog2/trabalhoprog2/Trabalho/trabalhoprog2/New Folder/trabalhoprog2/src/main/java/imagens/";
+                
+                 String caminho = "/Users/tobiaskiefer/NetBeansProjects/TrabalhoProg2MVC/trabalhoprog2-master/src/main/java/imagens/";
                  File outputfile = new File(caminho+nome);  
                  txtNomeArquivo.setText(nome);
                  ImageIO.write(imagem, "jpg", outputfile);

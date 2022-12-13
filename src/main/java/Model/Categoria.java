@@ -6,8 +6,8 @@ import java.util.Date;
 
 public class Categoria {
     
-    private static int contador;
-    private int numerocategoria = 1;
+    private static int contador = 1;
+    private int numerocategoria;
     private String nomecategoria;
     private String descricaocategoria; 
     private String datahoracriacao;
